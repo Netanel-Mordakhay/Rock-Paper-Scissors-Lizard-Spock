@@ -19,7 +19,6 @@ import {
   FaHandLizard,
   FaHandSpock,
 } from "react-icons/fa";
-import sheldonImage from "../assets/sheldon.jpg";
 import howToImage from "../assets/howtoplay.webp";
 import SheldonExplanation from "./SheldonExplanation";
 
