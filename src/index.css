@@ -48,3 +48,11 @@ body {
 .left-rotate:hover {
   transform: rotate(20deg);
 }
+
+.scale-animation {
+  transition: transform 0.3s ease-in-out;
+}
+
+.scale-animation:hover {
+  transform: scale(1.05);
+}
