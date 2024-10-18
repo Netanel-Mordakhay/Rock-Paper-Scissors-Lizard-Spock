@@ -38,7 +38,7 @@ const HowToPlay = () => {
           <ModalBody>
             <Image
               borderRadius="full"
-              boxSize="150px"
+              boxSize="100px"
               src={sheldonImage}
               alt="Sheldon Cooper"
               float="right"
