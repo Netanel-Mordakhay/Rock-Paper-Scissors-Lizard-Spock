@@ -9,12 +9,12 @@ interface Props {
 
 const PlayerInfo = ({ title, currentChoice, currentScore }: Props) => {
   return (
-    <Stack alignItems="center" marginX={10}>
+    <Stack alignItems="center" marginX={{ base: "2", lg: "10" }}>
       <Heading as="h3" size="lg">
         {title}
       </Heading>
       <ChoiceCard currentChoice={currentChoice} />
-      <Text>Your score: {currentScore}</Text>
+      <Text>Current score: {currentScore}</Text>
     </Stack>
   );
 };

@@ -56,20 +56,20 @@ function App() {
     <>
       <Grid
         templateAreas={{
-          base: `"header header"
-                  "info info"
-                  "main main"
-                  "footer footer"`,
-          lg: `"header header"
-                "info info"
-                "main main"
-                "footer footer"`,
+          base: `"header"
+                  "info"
+                  "main"
+                  "footer"`,
+          lg: `"header"
+                "info"
+                "main"
+                "footer"`,
         }}
         gridTemplateRows={{
-          base: "repeat(4, auto)",
+          base: "50px 200px 1fr 50px",
           lg: "50px 120px 1fr 50px",
         }}
-        gridTemplateColumns={{ base: '"repeat(2, 1fr)"', lg: "repeat(2, 1fr)" }}
+        gridTemplateColumns={{ base: '"1fr"', lg: "1fr" }}
         minHeight="100vh"
       >
         <GridItem bg={bgColor} area={"header"} className="contentBox centered">
@@ -81,7 +81,7 @@ function App() {
             onSelectChoice={(choice) => handlePlayerChoice(choice)}
           />
         </GridItem>
-        <GridItem area={"main"} className="centered">
+        <GridItem area={"main"}>
           {isLoading ? (
             <Loading />
           ) : (
