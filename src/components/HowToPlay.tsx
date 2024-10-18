@@ -90,9 +90,10 @@ const HowToPlay = () => {
                 Rock
               </ListItem>
 
+              <ListItem>and as it always has...</ListItem>
+
               <ListItem>
-                and as it always has...
-                <br /> <FaHandRock />
+                <FaHandRock />
                 Rock crushes <FaHandScissors />
                 Scissors
               </ListItem>
