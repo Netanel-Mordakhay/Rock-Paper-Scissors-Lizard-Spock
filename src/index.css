@@ -1,7 +1,10 @@
-.centered-content {
+.contentBox {
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.centered {
+  justify-content: center;
   text-align: center;
 }
 

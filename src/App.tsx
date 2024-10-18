@@ -1,5 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import Header from "./components/Header";
+import ColorSwitch from "./components/ColorSwitch";
 
 function App() {
   return (
@@ -25,20 +26,20 @@ function App() {
         //maxWidth="1024px"
         //margin="0 auto"
       >
-        <GridItem area={"header"} className="centered-content">
+        <GridItem area={"header"} className="contentBox centered">
           <Header />
         </GridItem>
-        <GridItem bg="gray" area={"info"} className="centered-content">
+        <GridItem bg="gray" area={"info"} className="contentBox centered">
           Info
         </GridItem>
-        <GridItem bg="orange" area={"user"} className="centered-content">
+        <GridItem bg="orange" area={"user"} className="contentBox centered">
           user
         </GridItem>
-        <GridItem bg="yellow" area={"computer"} className="centered-content">
+        <GridItem bg="yellow" area={"computer"} className="contentBox centered">
           computer
         </GridItem>
-        <GridItem bg="gray" area={"footer"} className="centered-content">
-          footer
+        <GridItem bg="gray" area={"footer"} className="contentBox">
+          <ColorSwitch />
         </GridItem>
       </Grid>
     </>
