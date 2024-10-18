@@ -1,8 +1,12 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 import Header from "./components/Header";
 import FooterBar from "./components/FooterBar";
+import OptionButton from "./components/OptionButton";
+import PlayerInfo from "./components/PlayerInfo";
 
 function App() {
+  const bgColor = useColorModeValue("blue.100", "gray.700");
+
   return (
     <>
       <Grid
@@ -26,19 +30,19 @@ function App() {
         //maxWidth="1024px"
         //margin="0 auto"
       >
-        <GridItem area={"header"} className="contentBox centered">
+        <GridItem bg={bgColor} area={"header"} className="contentBox centered">
           <Header />
         </GridItem>
         <GridItem area={"info"} className="contentBox centered">
-          Info
+          <OptionButton />
         </GridItem>
-        <GridItem area={"user"} className="contentBox centered">
-          user
+        <GridItem area={"user"} className="centered">
+          <PlayerInfo />
         </GridItem>
-        <GridItem area={"computer"} className="contentBox centered">
-          computer
+        <GridItem area={"computer"} className="centered">
+          <PlayerInfo />
         </GridItem>
-        <GridItem area={"footer"} className="contentBox">
+        <GridItem bg={bgColor} area={"footer"} className="contentBox">
           <FooterBar />
         </GridItem>
       </Grid>
