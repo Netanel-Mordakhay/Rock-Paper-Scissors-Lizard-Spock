@@ -1,6 +1,7 @@
-import { HStack, Text } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import ColorSwitch from "./ColorSwitch";
+import HowToPlay from "./HowToPlay";
 
 const FooterBar = () => {
   return (
@@ -22,12 +23,11 @@ const FooterBar = () => {
         >
           <FaLinkedin className="social-icon left-rotate" />
         </a>
-
-        <Text as="i" color="gray.500">
-          Netanel Mordakhay
-        </Text>
       </HStack>
-      <ColorSwitch />
+      <HStack>
+        <HowToPlay />
+        <ColorSwitch />
+      </HStack>
     </HStack>
   );
 };

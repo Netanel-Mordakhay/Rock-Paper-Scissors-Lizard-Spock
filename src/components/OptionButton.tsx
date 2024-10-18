@@ -1,4 +1,4 @@
-import { Button, Text, Stack, HStack, Flex } from "@chakra-ui/react";
+import { Button, Text, Stack, Flex } from "@chakra-ui/react";
 import {
   FaHandRock,
   FaHandPaper,
