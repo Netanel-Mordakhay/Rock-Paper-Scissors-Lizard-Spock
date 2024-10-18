@@ -61,7 +61,7 @@ function App() {
         }}
         gridTemplateRows={{
           base: "repeat(4, auto)",
-          lg: "150px 150px 1fr 50px",
+          lg: "80px 120px 1fr auto",
         }}
         gridTemplateColumns={{ base: '"repeat(2, 1fr)"', lg: "repeat(2, 1fr)" }}
         minHeight="100vh"
