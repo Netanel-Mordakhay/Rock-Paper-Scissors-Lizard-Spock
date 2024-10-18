@@ -60,7 +60,7 @@ function App() {
                 "footer footer"`,
         }}
         gridTemplateRows={{
-          base: "80px 0.6fr 1fr 60px",
+          base: "repeat(4, auto)",
           lg: "150px 150px 1fr 50px",
         }}
         gridTemplateColumns={{ base: '"repeat(2, 1fr)"', lg: "repeat(2, 1fr)" }}
