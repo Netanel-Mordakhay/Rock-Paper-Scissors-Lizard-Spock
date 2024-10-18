@@ -1,14 +1,19 @@
 import { Stack, Heading, Text } from "@chakra-ui/react";
 import ChoiceCard from "./ChoiceCard";
 
-const PlayerInfo = () => {
+interface Props {
+  currentChoice: string;
+  currentScore: number;
+}
+
+const PlayerInfo = ({ currentChoice, currentScore }: Props) => {
   return (
     <Stack alignItems="center">
       <Heading as="h3" size="lg">
         Player
       </Heading>
-      <ChoiceCard />
-      <Text>Your score: 7</Text>
+      <ChoiceCard currentChoice={currentChoice} />
+      <Text>Your score: {currentScore}</Text>
     </Stack>
   );
 };
