@@ -48,18 +48,17 @@ function App() {
     <>
       <Grid
         templateAreas={{
-          base: `"header"
-                  "info"
-                  "user"
-                  "computer"
-                  "footer"`,
+          base: `"header header"
+                  "info info"
+                  "user computer"
+                  "footer footer"`,
           lg: `"header header"
                 "info info"
                 "user computer"
                 "footer footer"`,
         }}
         gridTemplateRows={{
-          base: "80px 0.6fr 1fr 1fr 60px",
+          base: "80px 0.6fr 1fr 60px",
           lg: "150px 150px 1fr 50px",
         }}
         gridTemplateColumns={{ base: '"repeat(2, 1fr)"', lg: "repeat(2, 1fr)" }}
@@ -76,12 +75,14 @@ function App() {
         </GridItem>
         <GridItem area={"user"} className="centered">
           <PlayerInfo
+            title="Player"
             currentChoice={gameState.playerChoice}
             currentScore={gameState.playerScore}
           />
         </GridItem>
         <GridItem area={"computer"} className="centered">
           <PlayerInfo
+            title="Computer"
             currentChoice={gameState.computerChoice}
             currentScore={gameState.computerScore}
           />

@@ -5,7 +5,7 @@ const ColorSwitch = () => {
 
   return (
     <Button onClick={toggleColorMode}>
-      Color mode: {colorMode === "light" ? "Dark" : "Light"}
+      {colorMode === "light" ? "Dark" : "Light"} mode
     </Button>
   );
 };
