@@ -1,0 +1,17 @@
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Header */
+
+.logo-icon {
+  font-size: 48px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.header-container:hover .logo-icon {
+  transform: rotate(20deg);
+}
