@@ -4,9 +4,8 @@ import FooterBar from "./components/FooterBar";
 import OptionButton from "./components/OptionButton";
 import PlayerInfo from "./components/PlayerInfo";
 import { useState } from "react";
-//import { decision, DecisionResult } from "./decision";
-//import { decision, DecisionResult } from "./decision";
 import { rockPaperScissors, DecisionResult } from "./rockPaperScissors";
+import Loading from "./components/Loading";
 
 // GameState interface holding information regarding each round
 interface GameState {
@@ -18,7 +17,7 @@ interface GameState {
 }
 
 function App() {
-  // different background colors useing the color mode hook
+  const [isLoading, setLoading] = useState(false);
   const bgColor = useColorModeValue("blue.50", "gray.700");
 
   // useState hook for controlling the GameState for each round
@@ -32,18 +31,25 @@ function App() {
 
   // Handling player choice using Decision function
   const handlePlayerChoice = (playerChoice: string) => {
-    const result: DecisionResult = rockPaperScissors(playerChoice);
+    // Set loading time
+    setLoading(true);
 
-    // Updating the GameState
-    setGameState((prevGameState) => ({
-      ...gameState,
-      playerChoice: result.playerChoice,
-      computerChoice: result.computerChoice,
-      playerScore: prevGameState.playerScore + (result.winner === 1 ? 1 : 0),
-      computerScore:
-        prevGameState.computerScore + (result.winner === -1 ? 1 : 0),
-      currentWinner: result.winner,
-    }));
+    setTimeout(() => {
+      const result: DecisionResult = rockPaperScissors(playerChoice);
+
+      // Updating the GameState
+      setGameState((prevGameState) => ({
+        ...gameState,
+        playerChoice: result.playerChoice,
+        computerChoice: result.computerChoice,
+        playerScore: prevGameState.playerScore + (result.winner === 1 ? 1 : 0),
+        computerScore:
+          prevGameState.computerScore + (result.winner === -1 ? 1 : 0),
+        currentWinner: result.winner,
+      }));
+      // Set loading state to false once results are updated
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -75,19 +81,23 @@ function App() {
             onSelectChoice={(choice) => handlePlayerChoice(choice)}
           />
         </GridItem>
-        <GridItem area={"main"}>
-          <HStack className="centered">
-            <PlayerInfo
-              title="Player"
-              currentChoice={gameState.playerChoice}
-              currentScore={gameState.playerScore}
-            />
-            <PlayerInfo
-              title="Computer"
-              currentChoice={gameState.computerChoice}
-              currentScore={gameState.computerScore}
-            />
-          </HStack>
+        <GridItem area={"main"} className="centered">
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <HStack className="centered">
+              <PlayerInfo
+                title="Player"
+                currentChoice={gameState.playerChoice}
+                currentScore={gameState.playerScore}
+              />
+              <PlayerInfo
+                title="Computer"
+                currentChoice={gameState.computerChoice}
+                currentScore={gameState.computerScore}
+              />
+            </HStack>
+          )}
         </GridItem>
 
         <GridItem area={"footer"} className="contentBox">
