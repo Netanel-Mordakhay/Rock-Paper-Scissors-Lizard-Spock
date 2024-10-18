@@ -4,7 +4,9 @@ import FooterBar from "./components/FooterBar";
 import OptionButton from "./components/OptionButton";
 import PlayerInfo from "./components/PlayerInfo";
 import { useState } from "react";
-import { decision, DecisionResult } from "./Decision";
+//import { decision, DecisionResult } from "./decision";
+//import { decision, DecisionResult } from "./decision";
+import { rockPaperScissors, DecisionResult } from "./rockPaperScissors";
 
 // GameState interface holding information regarding each round
 interface GameState {
@@ -30,7 +32,7 @@ function App() {
 
   // Handling player choice using Decision function
   const handlePlayerChoice = (playerChoice: string) => {
-    const result: DecisionResult = decision(playerChoice);
+    const result: DecisionResult = rockPaperScissors(playerChoice);
 
     // Updating the GameState
     setGameState((prevGameState) => ({

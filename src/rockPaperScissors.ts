@@ -4,7 +4,7 @@ export interface DecisionResult {
   winner: number; // 1: User wins, -1: Computer wins, 0: Draw
 }
 
-export const decision = (playerChoice: string): DecisionResult => {
+export const rockPaperScissors = (playerChoice: string): DecisionResult => {
   // Computer random choice
   const choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
