@@ -14,6 +14,7 @@ import { rockPaperScissors, DecisionResult } from "./rockPaperScissors";
 import Loading from "./components/Loading";
 import WinnerMessage from "./components/WinnerMessage";
 import confetti from "canvas-confetti";
+import { Howl } from "howler";
 
 // GameState interface holding information regarding each round
 interface GameState {
@@ -27,8 +28,10 @@ interface GameState {
 function App() {
   const [isLoading, setLoading] = useState(false);
   const bgColor = useColorModeValue("blue.50", "gray.700");
-  const winSound = new Audio("./sounds/win.wav");
-  const loseSound = new Audio("./sounds/lose.mp3");
+  var winSound = new Howl({ src: ["./sounds/win.wav"] });
+  var loseSound = new Howl({ src: ["./sounds/lose.mp3"] });
+  //const winSound = new Audio("./sounds/win.wav");
+  //const loseSound = new Audio("./sounds/lose.mp3");
 
   // useState hook for controlling the GameState for each round
   const [gameState, setGameState] = useState<GameState>({
