@@ -16,9 +16,8 @@ export const decision = (playerChoice: string): DecisionResult => {
   if (playerChoice === computerChoice) {
     winner = 0;
   }
-
   // Player wins
-  if (
+  else if (
     (playerChoice === "Rock" && computerChoice === "Scissors") ||
     (playerChoice === "Paper" && computerChoice === "Rock") ||
     (playerChoice === "Scissors" && computerChoice === "Paper")
