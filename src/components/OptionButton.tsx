@@ -1,4 +1,4 @@
-import { Button, Text, Stack, HStack } from "@chakra-ui/react";
+import { Button, Text, Stack, HStack, Flex } from "@chakra-ui/react";
 import {
   FaHandRock,
   FaHandPaper,
@@ -24,8 +24,8 @@ const OptionButton = ({ onSelectChoice, currentWinner }: Props) => {
 
   return (
     <Stack>
-      <Text>Please pick:</Text>
-      <HStack>
+      <Text>Choose your weapon:</Text>
+      <Flex wrap="wrap" gap={5} justifyContent="center">
         <Button
           leftIcon={<FaHandRock />}
           onClick={() => onSelectChoice("Rock")}
@@ -56,7 +56,7 @@ const OptionButton = ({ onSelectChoice, currentWinner }: Props) => {
         >
           Spock
         </Button>
-      </HStack>
+      </Flex>
       <Text>And the winner is... {winnerString}</Text>
     </Stack>
   );
