@@ -36,13 +36,6 @@ const HowToPlay = () => {
           <ModalHeader>How to play</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Image
-              borderRadius="full"
-              boxSize="100px"
-              src={sheldonImage}
-              alt="Sheldon Cooper"
-              float="right"
-            />
             <List className="list-one-line">
               <ListItem>
                 <FaHandScissors />
