@@ -13,6 +13,7 @@ import { useState } from "react";
 import { rockPaperScissors, DecisionResult } from "./rockPaperScissors";
 import Loading from "./components/Loading";
 import WinnerMessage from "./components/WinnerMessage";
+import confetti from "canvas-confetti";
 
 // GameState interface holding information regarding each round
 interface GameState {
@@ -26,6 +27,8 @@ interface GameState {
 function App() {
   const [isLoading, setLoading] = useState(false);
   const bgColor = useColorModeValue("blue.50", "gray.700");
+  const winSound = new Audio("./src/assets/sounds/win.wav");
+  const loseSound = new Audio("./src/assets/sounds/lose.mp3");
 
   // useState hook for controlling the GameState for each round
   const [gameState, setGameState] = useState<GameState>({
@@ -43,6 +46,17 @@ function App() {
 
     setTimeout(() => {
       const result: DecisionResult = rockPaperScissors(playerChoice);
+
+      if (result.winner === 1) {
+        winSound.play();
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+      } else if (result.winner === -1) {
+        loseSound.play();
+      }
 
       // Updating the GameState
       setGameState((prevGameState) => ({
