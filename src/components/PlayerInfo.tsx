@@ -12,7 +12,7 @@ const PlayerInfo = ({ title, currentChoice, currentScore }: Props) => {
     <Stack
       alignItems="center"
       marginX={{ base: "2", lg: "10" }}
-      className="scale-animation"
+      className="scale-animation animate__animated animate__bounceIn"
     >
       <Heading as="h3" size="lg">
         {title}

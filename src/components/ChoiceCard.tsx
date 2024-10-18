@@ -5,6 +5,7 @@ import rockImage from "../assets/rock.jpg";
 import scissorsImage from "../assets/scissors.jpg";
 import spockImage from "../assets/spock.jpg";
 import lizardImage from "../assets/lizard.jpg";
+import "animate.css";
 
 interface Props {
   currentChoice: string;
