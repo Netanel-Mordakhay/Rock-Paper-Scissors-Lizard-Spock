@@ -30,6 +30,7 @@ function App() {
   const bgColor = useColorModeValue("blue.50", "gray.700");
   var winSound = new Howl({ src: ["./sounds/win.wav"] });
   var loseSound = new Howl({ src: ["./sounds/lose.mp3"] });
+  var drawSound = new Howl({ src: ["./sounds/draw.mp3"] });
   //const winSound = new Audio("./sounds/win.wav");
   //const loseSound = new Audio("./sounds/lose.mp3");
 
@@ -59,6 +60,8 @@ function App() {
         });
       } else if (result.winner === -1) {
         loseSound.play();
+      } else {
+        drawSound.play();
       }
 
       // Updating the GameState
