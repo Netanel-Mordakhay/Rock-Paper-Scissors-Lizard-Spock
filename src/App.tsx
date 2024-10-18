@@ -5,7 +5,7 @@ import OptionButton from "./components/OptionButton";
 import PlayerInfo from "./components/PlayerInfo";
 
 function App() {
-  const bgColor = useColorModeValue("blue.100", "gray.700");
+  const bgColor = useColorModeValue("blue.50", "gray.700");
 
   return (
     <>

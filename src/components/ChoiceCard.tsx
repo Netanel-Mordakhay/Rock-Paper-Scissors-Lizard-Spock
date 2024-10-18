@@ -6,12 +6,13 @@ import paperImage from "../assets/paper.jpg";
 const ChoiceCard = () => {
   return (
     <Card
-      maxW={{ base: "140px", lg: "300px" }}
+      //maxW={{ base: "140px", lg: "300px" }}
+      width={{ base: "140px", lg: "300px" }}
       //maxH={{ base: "200px", lg: "300px" }}
       borderRadius={10}
       overflow="hidden"
     >
-      <Image src={paperImage} />
+      <Image objectFit="fill" src={paperImage} />
       <CardBody>Paper</CardBody>
     </Card>
   );
