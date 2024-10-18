@@ -70,7 +70,7 @@ function App() {
           lg: "50px 120px 1fr 50px",
         }}
         gridTemplateColumns={{ base: '"1fr"', lg: "1fr" }}
-        minHeight="100vh"
+        minHeight="100svh"
       >
         <GridItem bg={bgColor} area={"header"} className="contentBox centered">
           <Header />
