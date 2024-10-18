@@ -4,16 +4,17 @@ import FooterBar from "./components/FooterBar";
 import OptionButton from "./components/OptionButton";
 import PlayerInfo from "./components/PlayerInfo";
 import { useState } from "react";
+import { decision, DecisionResult } from "./Decision";
+
+interface GameState {
+  playerScore: number;
+  computerScore: number;
+  playerChoice: string;
+  computerChoice: string;
+}
 
 function App() {
   const bgColor = useColorModeValue("blue.50", "gray.700");
-
-  interface GameState {
-    playerScore: number;
-    computerScore: number;
-    playerChoice: string;
-    computerChoice: string;
-  }
 
   const [gameState, setGameState] = useState<GameState>({
     playerScore: 0,
@@ -21,6 +22,19 @@ function App() {
     playerChoice: "",
     computerChoice: "",
   });
+
+  const handlePlayerChoice = (playerChoice: string) => {
+    const result: DecisionResult = decision(playerChoice);
+
+    setGameState((prevGameState) => ({
+      ...gameState,
+      playerChoice: result.playerChoice,
+      computerChoice: result.computerChoice,
+      playerScore: prevGameState.playerScore + (result.winner === 1 ? 1 : 0),
+      computerScore:
+        prevGameState.computerScore + (result.winner === -1 ? 1 : 0),
+    }));
+  };
 
   return (
     <>
@@ -48,9 +62,7 @@ function App() {
         </GridItem>
         <GridItem area={"info"} className="contentBox centered">
           <OptionButton
-            onSelectChoice={(choice) =>
-              setGameState({ ...gameState, playerChoice: choice })
-            }
+            onSelectChoice={(choice) => handlePlayerChoice(choice)}
           />
         </GridItem>
         <GridItem area={"user"} className="centered">
@@ -61,7 +73,7 @@ function App() {
         </GridItem>
         <GridItem area={"computer"} className="centered">
           <PlayerInfo
-            currentChoice={gameState.playerChoice}
+            currentChoice={gameState.computerChoice}
             currentScore={gameState.computerScore}
           />
         </GridItem>
