@@ -27,8 +27,8 @@ interface GameState {
 function App() {
   const [isLoading, setLoading] = useState(false);
   const bgColor = useColorModeValue("blue.50", "gray.700");
-  const winSound = new Audio("./src/assets/sounds/win.wav");
-  const loseSound = new Audio("./src/assets/sounds/lose.mp3");
+  const winSound = new Audio("./sounds/win.wav");
+  const loseSound = new Audio("./sounds/lose.mp3");
 
   // useState hook for controlling the GameState for each round
   const [gameState, setGameState] = useState<GameState>({
