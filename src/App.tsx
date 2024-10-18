@@ -4,7 +4,7 @@ import FooterBar from "./components/FooterBar";
 import OptionButton from "./components/OptionButton";
 import PlayerInfo from "./components/PlayerInfo";
 import { useState } from "react";
-import { decision, DecisionResult } from "./Decision";
+import { decision, DecisionResult } from "./decision";
 
 // GameState interface holding information regarding each round
 interface GameState {
