@@ -1,4 +1,4 @@
-import { Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, useColorModeValue } from "@chakra-ui/react";
 import Header from "./components/Header";
 import FooterBar from "./components/FooterBar";
 import OptionButton from "./components/OptionButton";
@@ -52,16 +52,16 @@ function App() {
         templateAreas={{
           base: `"header header"
                   "info info"
-                  "user computer"
+                  "main main"
                   "footer footer"`,
           lg: `"header header"
                 "info info"
-                "user computer"
+                "main main"
                 "footer footer"`,
         }}
         gridTemplateRows={{
           base: "repeat(4, auto)",
-          lg: "80px 120px 1fr auto",
+          lg: "50px 120px 1fr 50px",
         }}
         gridTemplateColumns={{ base: '"repeat(2, 1fr)"', lg: "repeat(2, 1fr)" }}
         minHeight="100vh"
@@ -75,20 +75,21 @@ function App() {
             onSelectChoice={(choice) => handlePlayerChoice(choice)}
           />
         </GridItem>
-        <GridItem area={"user"} className="centered">
-          <PlayerInfo
-            title="Player"
-            currentChoice={gameState.playerChoice}
-            currentScore={gameState.playerScore}
-          />
+        <GridItem area={"main"}>
+          <HStack className="centered">
+            <PlayerInfo
+              title="Player"
+              currentChoice={gameState.playerChoice}
+              currentScore={gameState.playerScore}
+            />
+            <PlayerInfo
+              title="Computer"
+              currentChoice={gameState.computerChoice}
+              currentScore={gameState.computerScore}
+            />
+          </HStack>
         </GridItem>
-        <GridItem area={"computer"} className="centered">
-          <PlayerInfo
-            title="Computer"
-            currentChoice={gameState.computerChoice}
-            currentScore={gameState.computerScore}
-          />
-        </GridItem>
+
         <GridItem area={"footer"} className="contentBox">
           <FooterBar />
         </GridItem>

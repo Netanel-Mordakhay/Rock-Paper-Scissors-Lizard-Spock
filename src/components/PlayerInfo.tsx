@@ -9,7 +9,7 @@ interface Props {
 
 const PlayerInfo = ({ title, currentChoice, currentScore }: Props) => {
   return (
-    <Stack alignItems="center">
+    <Stack alignItems="center" marginX={10}>
       <Heading as="h3" size="lg">
         {title}
       </Heading>
