@@ -3,9 +3,19 @@ import { FaHandRock, FaHandPaper, FaHandScissors } from "react-icons/fa";
 
 interface Props {
   onSelectChoice: (choice: string) => void;
+  currentWinner: number;
 }
 
-const OptionButton = ({ onSelectChoice }: Props) => {
+const OptionButton = ({ onSelectChoice, currentWinner }: Props) => {
+  const winnerString =
+    currentWinner === 1
+      ? "YOU WIN!"
+      : currentWinner === -1
+      ? "COMPUTER WINS!"
+      : currentWinner === 0
+      ? "IT'S A DRAW."
+      : "";
+
   return (
     <Stack>
       <Text>Please pick:</Text>
@@ -29,7 +39,7 @@ const OptionButton = ({ onSelectChoice }: Props) => {
           Scissors
         </Button>
       </HStack>
-      <Text>And the winner is...</Text>
+      <Text>And the winner is... {winnerString}</Text>
     </Stack>
   );
 };

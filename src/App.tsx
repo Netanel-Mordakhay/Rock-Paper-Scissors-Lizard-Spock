@@ -6,26 +6,33 @@ import PlayerInfo from "./components/PlayerInfo";
 import { useState } from "react";
 import { decision, DecisionResult } from "./Decision";
 
+// GameState interface holding information regarding each round
 interface GameState {
   playerScore: number;
   computerScore: number;
   playerChoice: string;
   computerChoice: string;
+  currentWinner: number;
 }
 
 function App() {
+  // different background colors useing the color mode hook
   const bgColor = useColorModeValue("blue.50", "gray.700");
 
+  // useState hook for controlling the GameState for each round
   const [gameState, setGameState] = useState<GameState>({
     playerScore: 0,
     computerScore: 0,
     playerChoice: "",
     computerChoice: "",
+    currentWinner: -2, // Default value with no meaning showing no current winner
   });
 
+  // Handling player choice using Decision function
   const handlePlayerChoice = (playerChoice: string) => {
     const result: DecisionResult = decision(playerChoice);
 
+    // Updating the GameState
     setGameState((prevGameState) => ({
       ...gameState,
       playerChoice: result.playerChoice,
@@ -33,6 +40,7 @@ function App() {
       playerScore: prevGameState.playerScore + (result.winner === 1 ? 1 : 0),
       computerScore:
         prevGameState.computerScore + (result.winner === -1 ? 1 : 0),
+      currentWinner: result.winner,
     }));
   };
 
@@ -62,6 +70,7 @@ function App() {
         </GridItem>
         <GridItem area={"info"} className="contentBox centered">
           <OptionButton
+            currentWinner={gameState.currentWinner}
             onSelectChoice={(choice) => handlePlayerChoice(choice)}
           />
         </GridItem>
@@ -77,7 +86,7 @@ function App() {
             currentScore={gameState.computerScore}
           />
         </GridItem>
-        <GridItem bg={bgColor} area={"footer"} className="contentBox">
+        <GridItem area={"footer"} className="contentBox">
           <FooterBar />
         </GridItem>
       </Grid>
