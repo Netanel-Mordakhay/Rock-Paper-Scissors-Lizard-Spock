@@ -9,19 +9,9 @@ import {
 
 interface Props {
   onSelectChoice: (choice: string) => void;
-  currentWinner: number;
 }
 
-const OptionButton = ({ onSelectChoice, currentWinner }: Props) => {
-  const winnerString =
-    currentWinner === 1
-      ? "YOU WIN!"
-      : currentWinner === -1
-      ? "COMPUTER WINS!"
-      : currentWinner === 0
-      ? "IT'S A DRAW."
-      : "";
-
+const OptionButton = ({ onSelectChoice }: Props) => {
   return (
     <Stack>
       <Text>Choose your weapon:</Text>
@@ -57,7 +47,6 @@ const OptionButton = ({ onSelectChoice, currentWinner }: Props) => {
           Spock
         </Button>
       </Flex>
-      <Text>And the winner is... {winnerString}</Text>
     </Stack>
   );
 };

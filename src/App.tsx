@@ -1,4 +1,10 @@
-import { Grid, GridItem, HStack, useColorModeValue } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  HStack,
+  Stack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import Header from "./components/Header";
 import FooterBar from "./components/FooterBar";
 import OptionButton from "./components/OptionButton";
@@ -6,6 +12,7 @@ import PlayerInfo from "./components/PlayerInfo";
 import { useState } from "react";
 import { rockPaperScissors, DecisionResult } from "./rockPaperScissors";
 import Loading from "./components/Loading";
+import WinnerMessage from "./components/WinnerMessage";
 
 // GameState interface holding information regarding each round
 interface GameState {
@@ -77,26 +84,28 @@ function App() {
         </GridItem>
         <GridItem area={"info"} className="contentBox centered">
           <OptionButton
-            currentWinner={gameState.currentWinner}
             onSelectChoice={(choice) => handlePlayerChoice(choice)}
           />
         </GridItem>
-        <GridItem area={"main"}>
+        <GridItem area={"main"} className="centered">
           {isLoading ? (
             <Loading />
           ) : (
-            <HStack className="centered">
-              <PlayerInfo
-                title="Player"
-                currentChoice={gameState.playerChoice}
-                currentScore={gameState.playerScore}
-              />
-              <PlayerInfo
-                title="Computer"
-                currentChoice={gameState.computerChoice}
-                currentScore={gameState.computerScore}
-              />
-            </HStack>
+            <Stack className="centered">
+              <HStack className="centered">
+                <PlayerInfo
+                  title="Player"
+                  currentChoice={gameState.playerChoice}
+                  currentScore={gameState.playerScore}
+                />
+                <PlayerInfo
+                  title="Computer"
+                  currentChoice={gameState.computerChoice}
+                  currentScore={gameState.computerScore}
+                />
+              </HStack>
+              <WinnerMessage currentWinner={gameState.currentWinner} />
+            </Stack>
           )}
         </GridItem>
 
