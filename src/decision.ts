@@ -6,7 +6,7 @@ export interface DecisionResult {
 
 export const decision = (playerChoice: string): DecisionResult => {
   // Computer random choice
-  const choices = ["Rock", "Paper", "Scissors"];
+  const choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
   const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
   // Variables
@@ -18,9 +18,16 @@ export const decision = (playerChoice: string): DecisionResult => {
   }
   // Player wins
   else if (
-    (playerChoice === "Rock" && computerChoice === "Scissors") ||
-    (playerChoice === "Paper" && computerChoice === "Rock") ||
-    (playerChoice === "Scissors" && computerChoice === "Paper")
+    (playerChoice === "Rock" &&
+      (computerChoice === "Scissors" || computerChoice === "Lizard")) ||
+    (playerChoice === "Paper" &&
+      (computerChoice === "Rock" || computerChoice === "Spock")) ||
+    (playerChoice === "Scissors" &&
+      (computerChoice === "Paper" || computerChoice === "Lizard")) ||
+    (playerChoice === "Lizard" &&
+      (computerChoice === "Paper" || computerChoice === "Spock")) ||
+    (playerChoice === "Spock" &&
+      (computerChoice === "Rock" || computerChoice === "Scissors"))
   ) {
     winner = 1;
     // Computer wins

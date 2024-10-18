@@ -3,6 +3,8 @@ import defaultImage from "../assets/default.jpg";
 import paperImage from "../assets/paper.jpg";
 import rockImage from "../assets/rock.jpg";
 import scissorsImage from "../assets/scissors.jpg";
+import spockImage from "../assets/spock.jpg";
+import lizardImage from "../assets/lizard.jpg";
 
 interface Props {
   currentChoice: string;
@@ -15,6 +17,8 @@ const ChoiceCard = ({ currentChoice }: Props) => {
     Rock: rockImage,
     Paper: paperImage,
     Scissors: scissorsImage,
+    Lizard: lizardImage,
+    Spock: spockImage,
   };
 
   const imageChoice = images[currentChoice];

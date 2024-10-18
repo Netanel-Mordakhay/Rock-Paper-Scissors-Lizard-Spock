@@ -1,5 +1,11 @@
 import { Button, Text, Stack, HStack } from "@chakra-ui/react";
-import { FaHandRock, FaHandPaper, FaHandScissors } from "react-icons/fa";
+import {
+  FaHandRock,
+  FaHandPaper,
+  FaHandScissors,
+  FaHandLizard,
+  FaHandSpock,
+} from "react-icons/fa";
 
 interface Props {
   onSelectChoice: (choice: string) => void;
@@ -37,6 +43,18 @@ const OptionButton = ({ onSelectChoice, currentWinner }: Props) => {
           onClick={() => onSelectChoice("Scissors")}
         >
           Scissors
+        </Button>
+        <Button
+          leftIcon={<FaHandLizard />}
+          onClick={() => onSelectChoice("Lizard")}
+        >
+          Lizard
+        </Button>
+        <Button
+          leftIcon={<FaHandSpock />}
+          onClick={() => onSelectChoice("Spock")}
+        >
+          Spock
         </Button>
       </HStack>
       <Text>And the winner is... {winnerString}</Text>
