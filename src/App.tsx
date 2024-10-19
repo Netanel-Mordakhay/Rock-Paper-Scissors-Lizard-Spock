@@ -1,3 +1,11 @@
+import Header from "./components/Header";
+import FooterBar from "./components/FooterBar";
+import OptionButton from "./components/OptionButton";
+import PlayerInfo from "./components/PlayerInfo";
+import Loading from "./components/Loading";
+import WinnerMessage from "./components/WinnerMessage";
+import { rockPaperScissors, DecisionResult } from "./rockPaperScissors";
+import { useState } from "react";
 import {
   Grid,
   GridItem,
@@ -5,14 +13,6 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Header from "./components/Header";
-import FooterBar from "./components/FooterBar";
-import OptionButton from "./components/OptionButton";
-import PlayerInfo from "./components/PlayerInfo";
-import { useState } from "react";
-import { rockPaperScissors, DecisionResult } from "./rockPaperScissors";
-import Loading from "./components/Loading";
-import WinnerMessage from "./components/WinnerMessage";
 import confetti from "canvas-confetti";
 import { Howl } from "howler";
 
@@ -41,7 +41,7 @@ function App() {
     currentWinner: -2, // Default value with no meaning showing no current winner
   });
 
-  // Handling player choice using Decision function
+  // Handling player choice using rockPaperScissors function
   const handlePlayerChoice = (playerChoice: string) => {
     // Set loading time
     setLoading(true);
@@ -50,6 +50,7 @@ function App() {
       const result: DecisionResult = rockPaperScissors(playerChoice);
 
       // Effects
+      // User win
       if (result.winner === 1) {
         winSound.play();
         confetti({
@@ -57,9 +58,12 @@ function App() {
           spread: 70,
           origin: { y: 0.6 },
         });
+        // Computer win
       } else if (result.winner === -1) {
         loseSound.play();
-      } else {
+      }
+      // Draw
+      else {
         drawSound.play();
       }
 

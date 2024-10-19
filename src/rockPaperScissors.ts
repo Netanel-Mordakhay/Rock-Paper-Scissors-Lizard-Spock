@@ -1,9 +1,11 @@
+// Decision result interface
 export interface DecisionResult {
   playerChoice: string;
   computerChoice: string;
   winner: number; // 1: User wins, -1: Computer wins, 0: Draw
 }
 
+// Rock paper scissors lizard spock logic
 export const rockPaperScissors = (playerChoice: string): DecisionResult => {
   // Computer random choice
   const choices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
@@ -12,7 +14,7 @@ export const rockPaperScissors = (playerChoice: string): DecisionResult => {
   // Variables
   let winner: number; //
 
-  // Draw
+  // Draw situation
   if (playerChoice === computerChoice) {
     winner = 0;
   }
