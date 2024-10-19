@@ -31,8 +31,6 @@ function App() {
   var winSound = new Howl({ src: ["./sounds/win.wav"] });
   var loseSound = new Howl({ src: ["./sounds/lose.mp3"] });
   var drawSound = new Howl({ src: ["./sounds/draw.mp3"] });
-  //const winSound = new Audio("./sounds/win.wav");
-  //const loseSound = new Audio("./sounds/lose.mp3");
 
   // useState hook for controlling the GameState for each round
   const [gameState, setGameState] = useState<GameState>({
@@ -51,6 +49,7 @@ function App() {
     setTimeout(() => {
       const result: DecisionResult = rockPaperScissors(playerChoice);
 
+      // Effects
       if (result.winner === 1) {
         winSound.play();
         confetti({
@@ -64,7 +63,7 @@ function App() {
         drawSound.play();
       }
 
-      // Updating the GameState
+      // Updating the GameState with the current changes built upon previous state
       setGameState((prevGameState) => ({
         ...gameState,
         playerChoice: result.playerChoice,
@@ -74,7 +73,8 @@ function App() {
           prevGameState.computerScore + (result.winner === -1 ? 1 : 0),
         currentWinner: result.winner,
       }));
-      // Set loading state to false once results are updated
+
+      // Set loading state to false once results are updated, 1sec wait
       setLoading(false);
     }, 1000);
   };
@@ -82,19 +82,13 @@ function App() {
   return (
     <>
       <Grid
-        templateAreas={{
-          base: `"header"
-                  "info"
-                  "main"
-                  "footer"`,
-          lg: `"header"
-                "info"
-                "main"
-                "footer"`,
-        }}
+        templateAreas={`"header"
+                        "info"
+                        "main"
+                        "footer"`}
         gridTemplateRows={{
-          base: "50px 200px 1fr 50px",
-          lg: "50px 120px 1fr 50px",
+          base: "50px 200px 1fr 60px",
+          lg: "50px 120px 1fr 60px",
         }}
         gridTemplateColumns={{ base: '"1fr"', lg: "1fr" }}
         minHeight="100svh"
@@ -129,7 +123,7 @@ function App() {
           )}
         </GridItem>
 
-        <GridItem area={"footer"} className="contentBox">
+        <GridItem bg={bgColor} area={"footer"} className="contentBox">
           <FooterBar />
         </GridItem>
       </Grid>

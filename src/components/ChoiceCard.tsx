@@ -1,10 +1,10 @@
 import { Card, CardBody, Image } from "@chakra-ui/react";
-import defaultImage from "../assets/default.jpg";
-import paperImage from "../assets/paper.jpg";
-import rockImage from "../assets/rock.jpg";
-import scissorsImage from "../assets/scissors.jpg";
-import spockImage from "../assets/spock.jpg";
-import lizardImage from "../assets/lizard.jpg";
+import defaultImage from "../assets/default.webp";
+import paperImage from "../assets/paper.webp";
+import rockImage from "../assets/rock.webp";
+import scissorsImage from "../assets/scissors.webp";
+import spockImage from "../assets/spock.webp";
+import lizardImage from "../assets/lizard.webp";
 
 interface Props {
   currentChoice: string;
