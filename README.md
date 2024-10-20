@@ -8,6 +8,7 @@ Based on the Big Bang Theory's version of 'Rock Paper Scissors', I present to yo
 ## Installation
 
 **1. Make sure you have [Node.js](https://nodejs.org/) installed.**
+
 **2. Install using git**
 
 ```
