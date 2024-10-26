@@ -3,7 +3,7 @@
 ![Rock Paper Scissors Lizard Spock](RPSLS.jpg "Rock Paper Scissors Lizard Spock")
 Based on the Big Bang Theory's version of 'Rock Paper Scissors', I present to you: 'Rock Paper Scissors Lizard Spock'. Rules regarding how to play are available both at the bottom of the readme file and in the app itself (bottom-right corner).
 
-## Live demo: [here](https://bigbang-rock-paper-scissors.netlify.app/)
+## Live demo: [here](https://rock-paper-scissors-lizard-spock-six-tawny.vercel.app/)
 
 ## Installation
 
